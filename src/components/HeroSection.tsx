@@ -14,7 +14,7 @@ export default function HeroSection() {
         className="absolute inset-0"
       >
         <Image
-          src="/fundo2.jpg"
+          src="/fundo4.jpg"
           alt="Vista aérea de loteamento e terrenos"
           fill
           className="object-cover"
