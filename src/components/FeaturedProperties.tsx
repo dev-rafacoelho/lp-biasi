@@ -4,24 +4,27 @@ export default function FeaturedProperties() {
   const properties = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Apartamento de Alto Padrão - Centro",
-      description: "3 suítes, 2 vagas, lazer completo. Conforto e sofisticação em cada detalhe.",
-      type: "Apartamento"
+      image: "/jardim.jpg",
+      title: "Jardim Oriente",
+      description: "Sem entrada e parcelamento em 156 vezes, liberado para construir imediatamente com estrutura 100% completa!",
+      type: "Loteamento",
+      highlight: "156x sem entrada"
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Casa dos Sonhos - Condomínio X",
-      description: "4 quartos, 500m² de área construída, espaço gourmet. Viva com segurança e tranquilidade.",
-      type: "Casa"
+      image: "/canario.jpg",
+      title: "Recanto dos Canários",
+      description: "Sem entrada e parcelamento em 225 vezes, concorre a uma moto zero km na compra, obras avançadas!",
+      type: "Loteamento",
+      highlight: "225x + Moto 0km"
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Terreno para Construir - Bairro Y",
-      description: "450m², excelente localização, pronto para construir seu projeto. Oportunidade única!",
-      type: "Terreno"
+      image: "/buritis.png",
+      title: "Residencial Buritis",
+      description: "Maior bairro da MT-140, muito consolidado, comércio local já estabilizado, poucas unidades disponíveis, lotes de 300 m²",
+      type: "Loteamento",
+      highlight: "Lotes 300m²"
     }
   ]
 
@@ -48,9 +51,12 @@ export default function FeaturedProperties() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                <div className="absolute top-4 left-4 space-y-2">
+                  <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium block">
                     {property.type}
+                  </span>
+                  <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium block">
+                    {property.highlight}
                   </span>
                 </div>
               </div>
