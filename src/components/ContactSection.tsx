@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Toast from './Toast'
+import { motion } from 'framer-motion'
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -97,16 +98,39 @@ export default function ContactSection() {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Form Section */}
-          <div>
-            <div className="text-center lg:text-left mb-8">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-center lg:text-left mb-8"
+            >
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-bold text-white mb-6"
+              >
                 Encontre o lar dos seus sonhos hoje!
-              </h2>
-              <p className="text-xl text-blue-100">
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="text-xl text-blue-100"
+              >
                 Preencha o formulário e um de nossos especialistas entrará em contato 
                 para te ajudar a encontrar o imóvel ideal.
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
 
             <form onSubmit={handleSubmit} className="bg-white rounded-lg p-8 shadow-xl">
               <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -258,11 +282,23 @@ export default function ContactSection() {
                 )}
               </button>
             </form>
-          </div>
+          </motion.div>
 
           {/* Image Section */}
-          <div className="hidden lg:block">
-            <div className="relative h-96 rounded-lg overflow-hidden">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="hidden lg:block"
+          >
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="relative h-96 rounded-lg overflow-hidden"
+            >
               <Image
                 src="/sonho.jpg"
                 alt="Pessoa contemplando horizonte através de janela com xícara de café"
@@ -270,16 +306,22 @@ export default function ContactSection() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            </div>
-            <div className="mt-6 text-center text-white">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+              className="mt-6 text-center text-white"
+            >
               <p className="text-lg font-medium">
                 &ldquo;Sua nova vida começa aqui&rdquo;
               </p>
               <p className="text-blue-100 mt-2">
                 Deixe-nos ajudá-lo a encontrar o lar perfeito
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 

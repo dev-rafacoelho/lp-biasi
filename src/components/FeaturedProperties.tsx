@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function FeaturedProperties() {
   const properties = [
@@ -33,19 +34,45 @@ export default function FeaturedProperties() {
   return (
     <section id="imoveis" className="py-20 bg-gray-600">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+          >
             Destaques do Nosso Portfólio
-          </h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-xl text-gray-200 max-w-3xl mx-auto"
+          >
             Descubra os melhores imóveis selecionados especialmente para você. 
             Cada propriedade foi cuidadosamente escolhida por sua qualidade e potencial.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {properties.map((property) => (
-            <div key={property.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+          {properties.map((property, index) => (
+            <motion.div 
+              key={property.id} 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05, y: -10 }}
+              className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300"
+            >
               <div className="relative h-64">
                 <Image
                   src={property.image}
@@ -77,7 +104,7 @@ export default function FeaturedProperties() {
                   Ver Detalhes
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
