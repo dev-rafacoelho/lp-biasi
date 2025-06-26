@@ -94,7 +94,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contato" className="py-20 bg-blue-500">
+    <section id="contato" className="py-20 bg-[#014ab1]">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Form Section */}
@@ -145,7 +145,7 @@ export default function ContactSection() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black text-black"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#014ab1] focus:border-transparent placeholder-black text-black"
                     placeholder="Seu nome completo"
                   />
                 </div>
@@ -160,7 +160,7 @@ export default function ContactSection() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black text-black"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#014ab1] focus:border-transparent placeholder-black text-black"
                     placeholder="seu@email.com"
                   />
                 </div>
@@ -178,7 +178,7 @@ export default function ContactSection() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
+                    className="w-full px-4 py-3 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#014ab1] focus:border-transparent placeholder-black"
                     placeholder="(66) 99684-8866"
                   />
                 </div>
@@ -192,7 +192,7 @@ export default function ContactSection() {
                     name="neighborhood"
                     value={formData.neighborhood}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black text-black"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#014ab1] focus:border-transparent placeholder-black text-black"
                     placeholder="Ex: Jardim Oriente, Recanto dos Canários..."
                   />
                 </div>
@@ -207,7 +207,7 @@ export default function ContactSection() {
                   name="budget"
                   value={formData.budget}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#014ab1] focus:border-transparent text-black"
                 >
                   <option value="">Selecione uma faixa</option>
                   <option value="ate-200k">Até R$ 200.000</option>
@@ -227,7 +227,7 @@ export default function ContactSection() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black text-black"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#014ab1] focus:border-transparent placeholder-black text-black"
                   placeholder="Conte-nos mais sobre o que você procura..."
                 />
               </div>

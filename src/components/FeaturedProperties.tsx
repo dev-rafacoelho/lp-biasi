@@ -81,7 +81,7 @@ export default function FeaturedProperties() {
                   className="object-cover"
                 />
                 <div className="absolute top-4 left-4 space-y-2">
-                  <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium block">
+                  <span className="bg-[#014ab1] text-white px-3 py-1 rounded-full text-sm font-medium block">
                     {property.type}
                   </span>
                   <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium block">
@@ -99,7 +99,7 @@ export default function FeaturedProperties() {
                     // Scroll to contact form
                     document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full font-medium transition-colors duration-300"
+                  className="bg-[#014ab1] hover:bg-blue-600 text-white px-6 py-2 rounded-full font-medium transition-colors duration-300"
                 >
                   Ver Detalhes
                 </button>

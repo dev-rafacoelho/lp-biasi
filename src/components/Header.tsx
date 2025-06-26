@@ -40,7 +40,7 @@ export default function Header() {
               href="#inicio" 
               className={`font-medium transition-colors duration-300 ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-blue-500' 
+                  ? 'text-gray-700 hover:text-[#014ab1]' 
                   : 'text-white hover:text-blue-400'
               }`}
             >
@@ -50,7 +50,7 @@ export default function Header() {
               href="#sobre" 
               className={`font-medium transition-colors duration-300 ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-blue-500' 
+                  ? 'text-gray-700 hover:text-[#014ab1]' 
                   : 'text-white hover:text-blue-400'
               }`}
             >
@@ -60,7 +60,7 @@ export default function Header() {
               href="#imoveis" 
               className={`font-medium transition-colors duration-300 ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-blue-500' 
+                  ? 'text-gray-700 hover:text-[#014ab1]' 
                   : 'text-white hover:text-blue-400'
               }`}
             >
@@ -70,7 +70,7 @@ export default function Header() {
               href="#contato" 
               className={`font-medium transition-colors duration-300 ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-blue-500' 
+                  ? 'text-gray-700 hover:text-[#014ab1]' 
                   : 'text-white hover:text-blue-400'
               }`}
             >
@@ -82,7 +82,7 @@ export default function Header() {
           <div className="hidden md:block">
             <button
               onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+              className="bg-[#014ab1] hover:bg-blue-600 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
             >
               Fale Conosco
             </button>

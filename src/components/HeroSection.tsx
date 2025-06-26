@@ -57,7 +57,7 @@ export default function HeroSection() {
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg transition-colors duration-300"
+          className="bg-[#014ab1] hover:bg-blue-600 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg transition-colors duration-300"
         >
           Encontre seu novo lar
         </motion.button>
