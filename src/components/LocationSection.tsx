@@ -10,7 +10,7 @@ export default function LocationSection() {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Venha nos conhecer pessoalmente. Estamos localizados em um ponto estratégico 
-            para melhor atendê-lo em suas necessidades imobiliárias.
+            para melhor atendê-lo em suas transações de mercado imobiliárias	.
           </p>
         </div>
 

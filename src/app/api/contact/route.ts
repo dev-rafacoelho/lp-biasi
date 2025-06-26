@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Telefone:</strong> ${phone}</p>
             <p><strong>Loteamento/Bairro de Interesse:</strong> ${neighborhood || 'Não informado'}</p>
-            <p><strong>Orçamento:</strong> ${budget || 'Não informado'}</p>
+            <p><strong>Valor de parcela esperado:</strong> ${budget || 'Não informado'}</p>
           </div>
           
           ${message ? `

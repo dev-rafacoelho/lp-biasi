@@ -200,7 +200,7 @@ export default function ContactSection() {
 
               <div className="mb-6">
                 <label htmlFor="budget" className="block text-black font-medium mb-2">
-                  Orçamento Aproximado
+                  Valor de parcela esperado
                 </label>
                 <select
                   id="budget"
@@ -210,10 +210,9 @@ export default function ContactSection() {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#014ab1] focus:border-transparent text-black"
                 >
                   <option value="">Selecione uma faixa</option>
-                  <option value="ate-200k">Até R$ 200.000</option>
-                  <option value="200k-500k">R$ 200.000 - R$ 500.000</option>
-                  <option value="500k-1m">R$ 500.000 - R$ 1.000.000</option>
-                  <option value="acima-1m">Acima de R$ 1.000.000</option>
+                  <option value="500-800">R$ 500 - R$ 800</option>
+                  <option value="800-1300">R$ 800 - R$ 1.300</option>
+                  <option value="1300-acima">R$ 1.300 - acima</option>
                 </select>
               </div>
 

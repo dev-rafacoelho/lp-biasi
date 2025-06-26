@@ -18,8 +18,8 @@ export default function FeaturedProperties() {
       image: "/canario.jpg",
       title: "Recanto dos Canários",
       description: "Sem entrada e parcelamento em 225 vezes, concorre a uma moto zero km na compra, obras avançadas!",
-      type: "Loteamento",
-      highlight: "225x + Moto 0km"
+      type: "Loteamento em Feirão",
+      highlight: "225x + Sorteio"
     },
     {
       id: 3,
@@ -81,7 +81,7 @@ export default function FeaturedProperties() {
                   className="object-cover"
                 />
                 <div className="absolute top-4 left-4 space-y-2">
-                  <span className="bg-[#014ab1] text-white px-3 py-1 rounded-full text-sm font-medium block">
+                  <span className={`${property.type === 'Loteamento em Feirão' ? 'bg-red-500' : 'bg-[#014ab1]'} text-white px-3 py-1 rounded-full text-sm font-medium block`}>
                     {property.type}
                   </span>
                   <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium block">
