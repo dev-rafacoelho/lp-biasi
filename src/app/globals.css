@@ -63,28 +63,39 @@ body {
   }
 }
 
-/* Placeholder styling for better visibility */
+/* Placeholder styling - black color */
 input::placeholder,
 textarea::placeholder,
 select::placeholder {
-  color: #6b7280; /* gray-500 - default color */
-  opacity: 1;
+  color: #000000 !important; /* black color */
+  opacity: 1 !important;
 }
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #6b7280; /* gray-500 - default color */
-  opacity: 1;
+  color: #000000 !important; /* black color */
+  opacity: 1 !important;
 }
 
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  color: #6b7280; /* gray-500 - default color */
-  opacity: 1;
+  color: #000000 !important; /* black color */
+  opacity: 1 !important;
 }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: #6b7280; /* gray-500 - default color */
-  opacity: 1;
+  color: #000000 !important; /* black color */
+  opacity: 1 !important;
+}
+
+/* Force all text inputs to be black */
+input, textarea, select {
+  color: #000000 !important;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

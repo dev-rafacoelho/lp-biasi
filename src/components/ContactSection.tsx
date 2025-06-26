@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Toast from './Toast'
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -12,6 +13,14 @@ export default function ContactSection() {
     budget: '',
     message: ''
   })
+
+  const [toast, setToast] = useState({
+    isVisible: false,
+    message: '',
+    type: 'success' as 'success' | 'error'
+  })
+
+  const [isLoading, setIsLoading] = useState(false)
 
   // Check for selected property from sessionStorage
   useEffect(() => {
@@ -36,6 +45,7 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsLoading(true)
     
     try {
       const response = await fetch('/api/contact', {
@@ -49,7 +59,11 @@ export default function ContactSection() {
       const result = await response.json()
 
       if (result.success) {
-        alert('Obrigado pelo seu interesse! Em breve entraremos em contato.')
+        setToast({
+          isVisible: true,
+          message: 'Obrigado pelo seu interesse! Em breve entraremos em contato.',
+          type: 'success'
+        })
         // Limpar o formulário
         setFormData({
           name: '',
@@ -60,11 +74,21 @@ export default function ContactSection() {
           message: ''
         })
       } else {
-        alert('Erro ao enviar mensagem. Tente novamente.')
+        setToast({
+          isVisible: true,
+          message: 'Erro ao enviar mensagem. Tente novamente.',
+          type: 'error'
+        })
       }
     } catch (error) {
       console.error('Erro:', error)
-      alert('Erro ao enviar mensagem. Tente novamente.')
+      setToast({
+        isVisible: true,
+        message: 'Erro ao enviar mensagem. Tente novamente.',
+        type: 'error'
+      })
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -87,7 +111,7 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit} className="bg-white rounded-lg p-8 shadow-xl">
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="name" className="block text-black font-medium mb-2">
                     Nome Completo *
                   </label>
                   <input
@@ -97,12 +121,12 @@ export default function ContactSection() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black text-black"
                     placeholder="Seu nome completo"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="email" className="block text-black font-medium mb-2">
                     E-mail *
                   </label>
                   <input
@@ -112,7 +136,7 @@ export default function ContactSection() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black text-black"
                     placeholder="seu@email.com"
                   />
                 </div>
@@ -159,7 +183,7 @@ export default function ContactSection() {
                   name="budget"
                   value={formData.budget}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black text-black"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                 >
                   <option value="">Selecione uma faixa</option>
                   <option value="ate-200k">Até R$ 200.000</option>
@@ -170,7 +194,7 @@ export default function ContactSection() {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                <label htmlFor="message" className="block text-black font-medium mb-2">
                   Mensagem (Opcional)
                 </label>
                 <textarea
@@ -179,16 +203,59 @@ export default function ContactSection() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black text-black"
                   placeholder="Conte-nos mais sobre o que você procura..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white py-4 px-8 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
+                disabled={isLoading}
+                style={{
+                  width: '100%',
+                  padding: '16px 32px',
+                  borderRadius: '8px',
+                  fontWeight: '600',
+                  fontSize: '18px',
+                  color: 'white',
+                  backgroundColor: isLoading ? '#60A5FA' : '#3B82F6',
+                  cursor: isLoading ? 'not-allowed' : 'pointer',
+                  border: 'none',
+                  minHeight: '60px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  opacity: isLoading ? 0.8 : 1
+                }}
+                onMouseEnter={(e) => {
+                  if (!isLoading) {
+                    e.currentTarget.style.backgroundColor = '#2563EB'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isLoading) {
+                    e.currentTarget.style.backgroundColor = '#3B82F6'
+                  }
+                }}
               >
-                Falar com um Especialista
+                {isLoading ? (
+                  <span style={{ display: 'flex', alignItems: 'center' }}>
+                    <span 
+                      style={{
+                        width: '20px',
+                        height: '20px',
+                        border: '2px solid white',
+                        borderTop: '2px solid transparent',
+                        borderRadius: '50%',
+                        marginRight: '12px',
+                        animation: 'spin 1s linear infinite'
+                      }}
+                    ></span>
+                    Enviando...
+                  </span>
+                ) : (
+                  'Falar com um Especialista'
+                )}
               </button>
             </form>
           </div>
@@ -215,6 +282,14 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
+
+      {/* Toast Notification */}
+      <Toast
+        message={toast.message}
+        type={toast.type}
+        isVisible={toast.isVisible}
+        onClose={() => setToast({ ...toast, isVisible: false })}
+      />
     </section>
   )
 } 
