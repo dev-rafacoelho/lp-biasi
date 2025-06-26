@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  lp-biasi:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - EMAIL_USER=coelho180305@gmail.com
+      - EMAIL_PASS=ezoa jivt mbyh ffld
+      - EMAIL_SERVICE=gmail
+    restart: unless-stopped 

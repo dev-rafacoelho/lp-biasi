@@ -34,11 +34,38 @@ export default function ContactSection() {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Aqui você pode implementar a lógica de envio do formulário
-    console.log('Formulário enviado:', formData)
-    alert('Obrigado pelo seu interesse! Em breve entraremos em contato.')
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        alert('Obrigado pelo seu interesse! Em breve entraremos em contato.')
+        // Limpar o formulário
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          neighborhood: '',
+          budget: '',
+          message: ''
+        })
+      } else {
+        alert('Erro ao enviar mensagem. Tente novamente.')
+      }
+    } catch (error) {
+      console.error('Erro:', error)
+      alert('Erro ao enviar mensagem. Tente novamente.')
+    }
   }
 
   return (
@@ -91,9 +118,9 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="grid md:grid-cols-2 gap-6 mb-6 text-black">
                 <div>
-                  <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="phone" className="block text-black font-medium mb-2">
                     Telefone *
                   </label>
                   <input
@@ -103,12 +130,12 @@ export default function ContactSection() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
+                    className="w-full px-4 py-3 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
                     placeholder="(66) 99684-8866"
                   />
                 </div>
                 <div>
-                  <label htmlFor="neighborhood" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="neighborhood" className="block text-black font-medium mb-2">
                     Loteamento/Bairro de Interesse
                   </label>
                   <input
@@ -117,14 +144,14 @@ export default function ContactSection() {
                     name="neighborhood"
                     value={formData.neighborhood}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black text-black"
                     placeholder="Ex: Jardim Oriente, Recanto dos Canários..."
                   />
                 </div>
               </div>
 
               <div className="mb-6">
-                <label htmlFor="budget" className="block text-gray-700 font-medium mb-2">
+                <label htmlFor="budget" className="block text-black font-medium mb-2">
                   Orçamento Aproximado
                 </label>
                 <select
@@ -132,7 +159,7 @@ export default function ContactSection() {
                   name="budget"
                   value={formData.budget}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black text-black"
+                  className="w-full px-4 py-3 border text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black text-black"
                 >
                   <option value="">Selecione uma faixa</option>
                   <option value="ate-200k">Até R$ 200.000</option>
