@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 export default function ContactSection() {
@@ -12,6 +12,20 @@ export default function ContactSection() {
     budget: '',
     message: ''
   })
+
+  // Check for selected property from sessionStorage
+  useEffect(() => {
+    const selectedProperty = sessionStorage.getItem('selectedProperty')
+    if (selectedProperty) {
+      setFormData(prev => ({
+        ...prev,
+        neighborhood: selectedProperty,
+        message: `Tenho interesse no loteamento ${selectedProperty}. Gostaria de receber mais informações.`
+      }))
+      // Clear the selection after using it
+      sessionStorage.removeItem('selectedProperty')
+    }
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -56,7 +70,7 @@ export default function ContactSection() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
                     placeholder="Seu nome completo"
                   />
                 </div>
@@ -71,7 +85,7 @@ export default function ContactSection() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
                     placeholder="seu@email.com"
                   />
                 </div>
@@ -89,13 +103,13 @@ export default function ContactSection() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
                     placeholder="(66) 99999-9999"
                   />
                 </div>
                 <div>
                   <label htmlFor="neighborhood" className="block text-gray-700 font-medium mb-2">
-                    Bairro de Interesse
+                    Loteamento/Bairro de Interesse
                   </label>
                   <input
                     type="text"
@@ -103,8 +117,8 @@ export default function ContactSection() {
                     name="neighborhood"
                     value={formData.neighborhood}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Ex: Centro, Jardins..."
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
+                    placeholder="Ex: Jardim Oriente, Recanto dos Canários..."
                   />
                 </div>
               </div>
@@ -118,7 +132,7 @@ export default function ContactSection() {
                   name="budget"
                   value={formData.budget}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
                 >
                   <option value="">Selecione uma faixa</option>
                   <option value="ate-200k">Até R$ 200.000</option>
@@ -138,7 +152,7 @@ export default function ContactSection() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
                   placeholder="Conte-nos mais sobre o que você procura..."
                 />
               </div>
@@ -156,7 +170,7 @@ export default function ContactSection() {
           <div className="hidden lg:block">
             <div className="relative h-96 rounded-lg overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="/sonho.jpg"
                 alt="Pessoa contemplando horizonte através de janela com xícara de café"
                 fill
                 className="object-cover"

@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 
 export default function FeaturedProperties() {
@@ -63,7 +65,15 @@ export default function FeaturedProperties() {
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{property.title}</h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">{property.description}</p>
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full font-medium transition-colors duration-300">
+                <button 
+                  onClick={() => {
+                    // Store the selected property name for the form
+                    sessionStorage.setItem('selectedProperty', property.title)
+                    // Scroll to contact form
+                    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full font-medium transition-colors duration-300"
+                >
                   Ver Detalhes
                 </button>
               </div>
