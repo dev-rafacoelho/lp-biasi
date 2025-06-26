@@ -104,7 +104,7 @@ export default function ContactSection() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
-                    placeholder="(66) 99999-9999"
+                    placeholder="(66) 99684-8866"
                   />
                 </div>
                 <div>
@@ -132,7 +132,7 @@ export default function ContactSection() {
                   name="budget"
                   value={formData.budget}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-black text-black"
                 >
                   <option value="">Selecione uma faixa</option>
                   <option value="ate-200k">Até R$ 200.000</option>

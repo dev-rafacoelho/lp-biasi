@@ -43,10 +43,10 @@ export default function LocationSection() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Endereço</h4>
-                    <p className="text-gray-600">Rua dos Imóveis, 1234<br />Centro - Sinop/MT<br />CEP: 78550-000</p>
-                  </div>
+                                <div>
+                <h4 className="font-semibold text-gray-900">Endereço</h4>
+                <p className="text-gray-600">Rua das Cerejeiras, n° 399<br />Jardim Botânico, Galeria Candiotto<br />Sinop/MT</p>
+              </div>
                 </div>
 
                 <div className="flex items-start">
@@ -57,7 +57,7 @@ export default function LocationSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Telefone</h4>
-                    <p className="text-gray-600">(66) 9999-0000</p>
+                    <p className="text-gray-600">(66) 99684-8866</p>
                   </div>
                 </div>
 
@@ -81,7 +81,19 @@ export default function LocationSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">E-mail</h4>
-                    <p className="text-gray-600">contato@biasiimobiliaria.com.br</p>
+                    <p className="text-gray-600">danielbiasi@creci.org.br</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">CNPJ</h4>
+                    <p className="text-gray-600">60.221.301/0001-77</p>
                   </div>
                 </div>
               </div>

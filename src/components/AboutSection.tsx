@@ -1,28 +1,6 @@
 import Image from 'next/image'
 
 export default function AboutSection() {
-  const differentials = [
-    {
-      icon: "🤝",
-      title: "Consultoria Exclusiva",
-      description: "Atendimento personalizado para entender e realizar seu desejo, do primeiro contato à entrega das chaves."
-    },
-    {
-      icon: "🥽",
-      title: "Tecnologia de Tour Virtual",
-      description: "Explore os imóveis dos seus sonhos no conforto de casa com nossa tecnologia de tour virtual imersivo."
-    },
-    {
-      icon: "⚖️",
-      title: "Acompanhamento Jurídico Completo",
-      description: "Tenha total segurança em sua transação com nossa assessoria jurídica especializada em todas as etapas."
-    },
-    {
-      icon: "🏘️",
-      title: "Amplo Portfólio",
-      description: "Uma vasta seleção de imóveis e terrenos, residenciais e comerciais, para atender a todas as suas necessidades e expectativas."
-    }
-  ]
 
   return (
     <section id="sobre" className="py-20 bg-gray-50">
@@ -35,16 +13,6 @@ export default function AboutSection() {
             Com anos de experiência no mercado imobiliário, nossa missão é conectar pessoas aos seus lares ideais, 
             oferecendo serviços de excelência e construindo relacionamentos duradouros baseados na confiança.
           </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {differentials.map((item, index) => (
-            <div key={index} className="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{item.description}</p>
-            </div>
-          ))}
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
